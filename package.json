@@ -5,8 +5,9 @@
   "description": "Website for the Slavic Evangelical Baptist Church of Orange County",
   "scripts": {
     "dev": "http-server . -p 8080 -c-1",
-    "serve": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy .",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -R assets dist/",
+    "serve": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist",
     "login": "wrangler login"
   },
   "devDependencies": {
