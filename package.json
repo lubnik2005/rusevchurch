@@ -1,0 +1,16 @@
+{
+  "name": "rusevchurch",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for the Slavic Evangelical Baptist Church of Orange County",
+  "scripts": {
+    "dev": "http-server . -p 8080 -c-1",
+    "serve": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy .",
+    "login": "wrangler login"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "wrangler": "^3.90.0"
+  }
+}
