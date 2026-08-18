@@ -1,32 +1,26 @@
 # Slavic Evangelical Baptist Church of Orange County
 
-> Славянская Евангельская Баптистская Церковь округа Ориндж. A Russian-speaking
-> Slavic Baptist congregation in Anaheim, California. Sunday worship at 2:00 PM.
+> Славянская Евангельская Баптистская Церковь округа Ориндж. A Russian-speaking Slavic Baptist congregation in Anaheim, California. Sunday worship at 2:00 PM.
 
-## Key information
+Service times: Sunday worship at 2:00 PM; Bible study on Tuesdays 7:30 PM–9:00 PM (via Skype: live:rusevchurch). Location: 310 S Lemon St, Anaheim, CA 92805 (building kindly provided by Bethel Baptist Church). Mailing address: PO Box 248, Chino, CA 91708-0248. Primary language: Russian.
 
-- Service times: Sunday worship at 2:00 PM; Bible study on Tuesdays 7:30 PM–9:00 PM (via Skype: live:rusevchurch)
-- Location: 310 S Lemon St, Anaheim, CA 92805 (building kindly provided by Bethel Baptist Church)
-- Mailing address: PO Box 248, Chino, CA 91708-0248
-- Language: Russian (Русский)
+## Pages
 
-## Contact
-
-- General: contact@rusevchurch.org
-- Deacon: andrey@rusevchurch.org
-- Streaming issues: live@rusevchurch.org
-- Bible study (Skype): skype@rusevchurch.org
-
-## Sections
-
-- Home: https://rusevchurch.pages.dev/
-- About / Sunday worship (О Нас): https://rusevchurch.pages.dev/#about
-- Events (События): https://rusevchurch.pages.dev/#events
-- Statement of faith (Вероучение): https://rusevchurch.pages.dev/#beliefs
-- Location (Местонахождение): https://rusevchurch.pages.dev/#venue
-- Contact info (Информация): https://rusevchurch.pages.dev/#contact
+- [Home](https://rusevchurch.pages.dev/): Main page with worship times and overview
+- [About / Sunday worship (О Нас)](https://rusevchurch.pages.dev/#about): Welcome and what to expect at Sunday service
+- [Events (События)](https://rusevchurch.pages.dev/#events): Sunday worship and Tuesday Bible study details
+- [Statement of faith (Вероучение)](https://rusevchurch.pages.dev/#beliefs): The church's beliefs and doctrine
+- [Location (Местонахождение)](https://rusevchurch.pages.dev/#venue): Address, parking, and map
+- [Contact info (Информация)](https://rusevchurch.pages.dev/#contact): Address, email, and service times
 
 ## Online
 
-- Live stream and videos: YouTube channel (UCEXV5NHmNXCZ6i7_B6qMAyA)
-- Facebook: https://www.facebook.com/rusevchurchorangecounty/
+- [YouTube channel](https://www.youtube.com/channel/UCEXV5NHmNXCZ6i7_B6qMAyA/videos): Live stream and recorded services
+- [Facebook page](https://www.facebook.com/rusevchurchorangecounty/): Community updates
+
+## Contact
+
+- [Email general inquiries](mailto:contact@rusevchurch.org): General questions
+- [Email the deacon](mailto:andrey@rusevchurch.org): Deacon of the church
+- [Email streaming support](mailto:live@rusevchurch.org): Live stream / broadcast issues
+- [Email Bible study (Skype)](mailto:skype@rusevchurch.org): Join the Tuesday Bible study
