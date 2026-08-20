@@ -94,8 +94,7 @@
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
+    this.classList.toggle('active')
   })
 
   /**
@@ -108,8 +107,7 @@
       if (navbar.classList.contains('navbar-mobile')) {
         navbar.classList.remove('navbar-mobile')
         let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
+        if (navbarToggle) navbarToggle.classList.remove('active')
       }
       scrollto(this.hash)
     }
@@ -123,5 +121,33 @@
       scrollto(window.location.hash)
     }
   });
+
+  /**
+   * Click-to-load Google Maps (facade). The heavy Maps iframe is only
+   * requested after the user activates the placeholder, keeping the initial
+   * page free of maps.googleapis.com / maps.gstatic.com requests.
+   */
+  const loadMap = (facade) => {
+    const src = facade.getAttribute('data-map-src')
+    if (!src) return
+    const iframe = document.createElement('iframe')
+    iframe.title = facade.getAttribute('data-map-title') || 'Google Map'
+    iframe.src = src
+    iframe.loading = 'lazy'
+    iframe.width = '600'
+    iframe.height = '450'
+    iframe.style.border = '0'
+    iframe.allowFullscreen = true
+    iframe.setAttribute('tabindex', '0')
+    facade.replaceWith(iframe)
+    iframe.focus()
+  }
+  on('click', '.map-facade', function() { loadMap(this) })
+  on('keydown', '.map-facade', function(e) {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault()
+      loadMap(this)
+    }
+  })
 
 })()
