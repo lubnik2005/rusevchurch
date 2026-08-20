@@ -128,6 +128,22 @@
    * initial page stays free of maps.googleapis.com / maps.gstatic.com
    * requests without requiring a user click.
    */
+  /**
+   * Warm up Google Maps origins just before the map is requested.
+   * Done in JS (not a static <head> preconnect) so the hints are never
+   * flagged as "unused" on the initial page load.
+   */
+  const warmMapOrigins = () => {
+    if (window.__mapOriginsWarmed) return
+    window.__mapOriginsWarmed = true
+    ;['https://maps.googleapis.com', 'https://maps.gstatic.com'].forEach(function(origin) {
+      const link = document.createElement('link')
+      link.rel = 'preconnect'
+      link.href = origin
+      document.head.appendChild(link)
+    })
+  }
+
   const injectMap = (holder) => {
     const src = holder.getAttribute('data-map-src')
     if (!src || holder.dataset.mapLoaded) return
@@ -152,6 +168,7 @@
       const obs = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
+            warmMapOrigins()
             injectMap(mapHolder)
             observer.disconnect()
           }
@@ -159,6 +176,7 @@
       }, { rootMargin: '300px' })
       obs.observe(mapHolder)
     } else {
+      warmMapOrigins()
       injectMap(mapHolder)
     }
   }
