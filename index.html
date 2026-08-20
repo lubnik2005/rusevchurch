@@ -278,17 +278,11 @@ section { padding: 60px 0; }
 /* ---------- Venue ---------- */
 #venue .container-fluid { margin-bottom: 3px; }
 #venue .venue-map iframe { width: 100%; height: 100%; min-height: 400px; border: 0; }
-#venue .map-facade {
-  width: 100%; min-height: 400px; border: 0; cursor: pointer;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; color: #fff; padding: 30px;
+#venue .map-placeholder {
+  width: 100%; min-height: 400px; border: 0;
   background: linear-gradient(rgba(13, 20, 41, 0.72), rgba(13, 20, 41, 0.72)), url("assets/img/venue-info-bg.jpg") center center no-repeat;
-  background-size: cover; transition: 0.3s;
+  background-size: cover;
 }
-#venue .map-facade:hover { filter: brightness(1.08); }
-#venue .map-facade:focus-visible { outline: 3px solid #fcba03; outline-offset: -3px; }
-#venue .map-facade .icon { width: 54px; height: 54px; color: #fcba03; margin-bottom: 14px; }
-#venue .map-facade .map-facade-label { font-family: var(--font-head); font-weight: 600; font-size: 18px; }
 #venue .venue-info {
   background: url("assets/img/venue-info-bg.jpg") top center no-repeat; background-size: cover;
   position: relative; padding: 60px 0;
@@ -459,11 +453,8 @@ section { padding: 60px 0; }
           <p>Location</p>
         </div>
         <div class="row g-0">
-          <div class="col-lg-6 venue-map">
-            <div class="map-facade" role="button" tabindex="0" aria-label="Показать интерактивную карту" data-map-title="Карта — расположение церкви" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.209369905862!2d-117.9170522843457!3d33.83271083671356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd6251747be87%3A0x6b5786704c4f5b0e!2sBethel%20Baptist%20Church!5e0!3m2!1sen!2sus!4v1613439057874!5m2!1sen!2sus">
-              <svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/></svg>
-              <span class="map-facade-label">Показать карту / Load map</span>
-            </div>
+          <div class="col-lg-6 venue-map" id="map-holder" data-map-title="Карта — расположение церкви" data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.209369905862!2d-117.9170522843457!3d33.83271083671356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcd6251747be87%3A0x6b5786704c4f5b0e!2sBethel%20Baptist%20Church!5e0!3m2!1sen!2sus!4v1613439057874!5m2!1sen!2sus">
+            <div class="map-placeholder" aria-hidden="true"></div>
           </div>
           <div class="col-lg-6 venue-info">
             <div class="row justify-content-center">

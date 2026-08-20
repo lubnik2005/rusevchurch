@@ -123,15 +123,17 @@
   });
 
   /**
-   * Click-to-load Google Maps (facade). The heavy Maps iframe is only
-   * requested after the user activates the placeholder, keeping the initial
-   * page free of maps.googleapis.com / maps.gstatic.com requests.
+   * Lazy-load Google Maps automatically. The heavy Maps iframe is only
+   * requested once the venue section scrolls near the viewport, so the
+   * initial page stays free of maps.googleapis.com / maps.gstatic.com
+   * requests without requiring a user click.
    */
-  const loadMap = (facade) => {
-    const src = facade.getAttribute('data-map-src')
-    if (!src) return
+  const injectMap = (holder) => {
+    const src = holder.getAttribute('data-map-src')
+    if (!src || holder.dataset.mapLoaded) return
+    holder.dataset.mapLoaded = '1'
     const iframe = document.createElement('iframe')
-    iframe.title = facade.getAttribute('data-map-title') || 'Google Map'
+    iframe.title = holder.getAttribute('data-map-title') || 'Google Map'
     iframe.src = src
     iframe.loading = 'lazy'
     iframe.width = '600'
@@ -139,15 +141,26 @@
     iframe.style.border = '0'
     iframe.allowFullscreen = true
     iframe.setAttribute('tabindex', '0')
-    facade.replaceWith(iframe)
-    iframe.focus()
+    const placeholder = holder.querySelector('.map-placeholder')
+    if (placeholder) placeholder.remove()
+    holder.appendChild(iframe)
   }
-  on('click', '.map-facade', function() { loadMap(this) })
-  on('keydown', '.map-facade', function(e) {
-    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-      e.preventDefault()
-      loadMap(this)
+
+  const mapHolder = select('#map-holder')
+  if (mapHolder) {
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            injectMap(mapHolder)
+            observer.disconnect()
+          }
+        })
+      }, { rootMargin: '300px' })
+      obs.observe(mapHolder)
+    } else {
+      injectMap(mapHolder)
     }
-  })
+  }
 
 })()
